@@ -27,6 +27,10 @@ public class ApplicationRun {
 
     System.out.println("Contains Key 19 : " + customHashMap.containsKey(19));
 
+    System.out.println("Value of Key 10 Before Update: " + customHashMap.getValue(10));
+    customHashMap.put(10, 889898);
+    System.out.println("Value of Key 10 After Update: " + customHashMap.getValue(10));
+
     customHashMap.delete(12);
     customHashMap.delete(11);
     customHashMap.delete(17);
@@ -61,5 +65,13 @@ public class ApplicationRun {
     System.out.println("Contains Key 3 : " + customHashMap.containsKey(3));
 
     System.out.println("Size of Map : " + customHashMap.size());
+
+
+    CustomHashMap hMapWithInitSize = new CustomHashMap(1);
+    hMapWithInitSize.put(2, 10);
+    hMapWithInitSize.put(1, 3);
+    hMapWithInitSize.put(7, 10);
+    hMapWithInitSize.put(0, 11);
+    hMapWithInitSize.put(3, 20);
   }
 }

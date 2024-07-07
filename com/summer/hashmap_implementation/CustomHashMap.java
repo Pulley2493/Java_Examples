@@ -30,8 +30,17 @@ public class CustomHashMap {
   public void put(Integer key, Integer value) {
     final var idx = hashFunction(key);
     final var bucket = this.buckets[idx];
-    final var node = new Node(key, value);
 
+    var iterator = bucket.iterator();
+    while (iterator.hasNext()) {
+      var nodeInLL = iterator.next();
+      if (nodeInLL.getKey().equals(key)) {
+        nodeInLL.setValue(value);
+        return;
+      }
+    }
+
+    final var node = new Node(key, value);
     bucket.add(node);
     this.size++;
     this.loadFactor = Double.valueOf(this.size) / Double.valueOf(this.capacity);
